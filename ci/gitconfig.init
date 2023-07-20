@@ -1,0 +1,5 @@
+[user]
+    name = Git
+    email = git@gitolite
+[init]
+    defaultBranch = master

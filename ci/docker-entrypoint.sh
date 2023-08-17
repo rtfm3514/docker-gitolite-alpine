@@ -95,7 +95,7 @@ if [ "$1" = 'sshd' ] ; then
         echo 'INFO: No SSH daemon config found. Copying default SSH daemon config...'
         cp /ci/sshd_config "${GITOLITE_ALPINE_SSHDCONFIG}"
     else
-       echo 'INFO: No Git config found. Copying default Git config...'
+       echo 'INFO: Existing SSH daemon config found.'
     fi
 
     if ! [ -d "${GITOLITE_ALPINE_HOMEDIR}/repositories" ] ; then

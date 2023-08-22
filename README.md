@@ -52,13 +52,14 @@ changed ownership of '/srv/gitolite' from root:root to 100100:100101
 ~~~
 
 - Finally, run the container and replace
+- `--restart unless-stopped` with your preferred Docker Restart Policy.
 - `--name gitolite` with your desired container name.
 - `--hostname gitolite` with your desired hostname of the Gitolite server.
 - `--network` with your desired docker network.
 - `--publish XXXXX:` with your desired external facing high port (i.e. above 1023, refer to the "Security" section for an explanation).
 
 ~~~
-# docker run -d --env 'GITOLITE_ALPINE_LOGLEVEL=DEBUG' --name gitolite --publish 22222:2222 --network [DOCKER_NETWORK_NAME] --hostname gitolite -v /srv/gitolite:/var/lib/git alpine/gitolite:latest
+# docker run -d --env 'GITOLITE_ALPINE_LOGLEVEL=DEBUG' --restart unless-stopped --name gitolite --publish 22222:2222 --network [DOCKER_NETWORK_NAME] --hostname gitolite -v /srv/gitolite:/var/lib/git alpine/gitolite:latest
 # docker container logs -f gitolite
 
 INFO: Starting container initialization...
